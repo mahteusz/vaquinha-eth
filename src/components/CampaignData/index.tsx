@@ -6,7 +6,7 @@ const CampaignData = ({ current, goal, numberOfDonators, donate }: Props) => {
     <section className='campaign-data'>
       <div className='campaign-data__progress-bar-container'>
         <span className='campaign-data__progress-bar-current'>
-          {(current / goal) * 100}%
+          {((current / goal) * 100).toFixed(2)}%
         </span>
         <div className='campaign-data__progress-bar'>
           <div

@@ -32,6 +32,7 @@
   }
 
   &__input {
+    @include spacify(padding, x-small);
     @include fontify(primary, normal, small);
 
     @include respond(lg) {
@@ -60,6 +61,7 @@
     ;
     transition: all 0.25s ease;
     @include fontify(primary, bold, small);
+    @include spacify(padding, x-small);
 
     @include respond(lg) {
       @include fontify(primary, bold, medium);

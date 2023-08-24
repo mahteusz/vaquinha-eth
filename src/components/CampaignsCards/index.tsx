@@ -18,7 +18,7 @@ const CampaignsCards = () => {
                 <CampaignCard
                   title={campaign.title}
                   current={campaign.current}
-                  goal={campaign.goal}
+                  goal={Number(campaign.goal)}
                   imagePath={campaign.imagePath}
                   numberOfDonations={campaign.donations.length}
                   key={index}
@@ -42,7 +42,7 @@ const CampaignCard = ({ id, title, current, goal, imagePath, numberOfDonations }
       <h1 className='campaigns__card-title'> {title}</h1>
       <div className='campaigns__card-progress-bar-container'>
         <span className='campaigns__card-progress-bar-current'>
-          {(current / goal) * 100}%
+          {((current / goal) * 100).toFixed(2)}%
         </span>
         <div className='campaigns__card-progress-bar'>
           <div
@@ -52,7 +52,7 @@ const CampaignCard = ({ id, title, current, goal, imagePath, numberOfDonations }
           </div>
         </div>
       </div>
-      <h2 className='campaigns__card-donations'>{numberOfDonations} doações recebidas</h2>
+      <h2 className='campaigns__card-donations'>Doações recebidas: {numberOfDonations}</h2>
     </article>
   )
 }

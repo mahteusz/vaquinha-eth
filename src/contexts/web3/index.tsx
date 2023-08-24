@@ -9,7 +9,7 @@ import { WelcomeCard } from '../../components';
 export const Web3Context = createContext<Web3ContextData>({} as Web3ContextData)
 
 const CONTRACT_ABI = VaquinhaFactory as unknown as AbiItem
-const CONTRACT_ADDRESS = "0x59745c634d5a90fda6aee8af6650b47992b90d0b"
+const CONTRACT_ADDRESS = "0x3060463bB04C53427937fa0281588618dfe02ED6"
 
 export const Web3Provider = ({ children }: Web3ProviderData) => {
   const [web3, setWeb3] = useState<Web3>({} as Web3)
@@ -28,6 +28,7 @@ export const Web3Provider = ({ children }: Web3ProviderData) => {
       return
     }
 
+    await window.ethereum.enable();
     const newWeb3 = new Web3(window.ethereum)
     const accounts = await newWeb3.eth.requestAccounts()
 
