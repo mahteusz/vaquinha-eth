@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import { Contract } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils';
 import VaquinhaFactory from '../../contracts/ABI/Crowdfunding.json'
-import { WelcomeCard } from '../../components';
+import { WelcomeCard, Error } from '../../components';
 
 export const Web3Context = createContext<Web3ContextData>({} as Web3ContextData)
 
@@ -23,7 +23,7 @@ export const Web3Provider = ({ children }: Web3ProviderData) => {
 
   const getWeb3 = async () => {
     if (!window.ethereum) {
-      setError("MetaMask não encontrada. Por favor, faça a instalação")
+      setError("MetaMask não encontrado. Por favor, faça a instalação")
       setLoadingMetamask(false)
       return
     }
@@ -33,7 +33,7 @@ export const Web3Provider = ({ children }: Web3ProviderData) => {
     const accounts = await newWeb3.eth.requestAccounts()
 
     if (!accounts || !accounts.length) {
-      setError("MetaMask não encontrada. Por favor, faça a instalação")
+      setError("MetaMask não encontrado. Por favor, faça a instalação")
       setLoadingMetamask(false)
       return
     }
@@ -53,7 +53,8 @@ export const Web3Provider = ({ children }: Web3ProviderData) => {
   return (
     <Web3Context.Provider value={{ web3, contract, error, loadingMetamask }}>
       {
-      loadingMetamask ? <WelcomeCard /> : children}
+        loadingMetamask ? <WelcomeCard /> : error ? <Error error={error} /> : children
+      }
     </Web3Context.Provider>
   )
 }

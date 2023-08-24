@@ -1,0 +1,17 @@
+@import '../../styles/mixins.scss';
+
+.error-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #{map-get($default-theme, background)};
+  @include spacify(padding, medium);
+
+  &__message {
+    color: #{map-get($default-theme, secondary)};
+    @include fontify(primary, bold, large);
+    text-align: center;
+  }
+}

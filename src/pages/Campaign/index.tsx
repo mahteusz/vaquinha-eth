@@ -38,7 +38,7 @@ const Campaign = () => {
           <div className='campaign__container'>
             <CampaignData
               current={campaignData.campaigns[campaignId].current}
-              goal={campaignData.campaigns[campaignId].goal}
+              goal={Number(campaignData.campaigns[campaignId].goal)}
               numberOfDonators={removeDuplicates(campaignData.campaigns[campaignId].donators).length}
               donate={() => setDonationModalOpen(true)}
             />
