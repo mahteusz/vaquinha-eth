@@ -1,0 +1,14 @@
+@import '../../styles/mixins.scss';
+
+.create-campaign {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #{map-get($default-theme, background)};
+  @include spacify(margin-top, x-large);
+
+  @include respond(lg) {
+  }
+}

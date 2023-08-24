@@ -1,0 +1,60 @@
+@import '../../styles/mixins.scss';
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #{map-get($default-theme, background-secondary)};
+  width: 100%;
+  @include spacify(padding, medium);
+
+  @include respond(lg) {
+    @include spacify(padding, large);
+  }
+
+  &__logo-container {
+    display: flex;
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+
+  &__logo {
+    @include fontify(secondary, bold, medium);
+
+    @include respond(lg) {
+      @include fontify(secondary, bold, large);
+    }
+  }
+
+  &__action {
+    @include spacify(padding, x-small);
+    border-radius: 0.5rem;
+    border: 0;
+    background-color: #{map-get($default-theme, primary)};
+    color: #{map-get($default-theme, background-secondary)};  
+    transition: all 0.25s ease;
+    @include fontify(secondary, bold, small);
+
+    @include respond(lg) {
+      @include fontify(primary, bold, medium);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      box-shadow: 0.4rem 0.4rem #{map-get($default-theme, secondary)};
+    }
+  }
+}
+
+.primary {
+  color: #{map-get($default-theme, primary)};
+}
+
+.secondary {
+  color: #{map-get($default-theme, secondary)};
+}

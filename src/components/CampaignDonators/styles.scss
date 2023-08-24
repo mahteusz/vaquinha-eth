@@ -1,0 +1,24 @@
+@import '../../styles/mixins.scss';
+
+.campaign-donators {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include spacify(padding, medium);
+  @include spacify(gap, medium);
+  flex-grow: 1;
+  order: 3;
+  flex-basis: 100%;
+  background-color: #{map-get($default-theme, background-secondary)};
+  @include spacify(margin-bottom, x-large);
+
+  &__title {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, bold, medium);
+  }
+
+  &__wallet {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, normal, small);
+  }
+}

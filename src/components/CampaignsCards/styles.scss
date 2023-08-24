@@ -1,0 +1,110 @@
+@import '../../styles/mixins.scss';
+
+.title {
+  @include fontify(primary, bold, medium);
+  @include spacify(margin, x-large);
+  color: #{map-get($default-theme, text)};
+  text-align: center;
+
+  @include respond(lg) {
+    @include fontify(primary, bold, large);
+  }
+}
+
+.campaigns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  @include spacify(column-gap, x-large);
+  @include spacify(row-gap, x-large);
+  height: 100%;
+
+  @include respond(lg) {
+    width: 80%;
+  }
+
+  @include respond(xl) {
+    width: 70%;
+  }
+
+  &__card {
+    width: 30rem;
+    display: flex;
+    @include spacify(gap, small);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: #{map-get($default-theme, background-secondary)};
+    @include spacify(padding, medium);
+    transition: all 0.25s ease;
+
+    &:last-child {
+      @include spacify(margin-bottom, x-large);
+    }
+  }
+
+  &__card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0.5rem 0.5rem #{map-get($default-theme, secondary)};
+  }
+
+  &__card-image {
+    width: 100%;
+    height: 15rem;
+    border-radius: 0.5rem;
+  }
+
+  &__card-title {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, bold, small);
+
+    @include respond (md) {
+      @include fontify(primary, bold, small);
+    }
+  }
+
+  &__card-donations {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, bold, x-small);
+
+    @include respond (md) {
+      @include fontify(primary, bold, small);
+    }
+  }
+
+  &__card-progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  &__card-progress-bar {
+    display: flex;
+    align-items: center;
+    height: 1rem;
+    outline: 1px solid;
+    outline-color: #{map-get($default-theme, custom-grey)};
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  &__card-bar {
+    width: 50%;
+    height: 1rem;
+    background-color: #{map-get($default-theme, primary)};
+    border-radius: 0.5rem;
+  }
+
+  &__card-progress-bar-current {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, normal, x-small);
+
+    @include respond (md) {
+      @include fontify(primary, normal, small);
+    }
+  }
+}

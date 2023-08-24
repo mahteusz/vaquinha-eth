@@ -1,0 +1,91 @@
+@import '../../styles/mixins.scss';
+
+.campaign-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include spacify(padding, medium);
+  @include spacify(gap, medium);
+  width: 100%;
+  background-color: #{map-get($default-theme, background-secondary)};
+
+
+  @include respond(md) {
+    order: 1;
+    position: sticky;
+    top:2rem;
+    width: 35%;
+  }
+
+  @include respond(lg) {
+    @include spacify(padding, large);
+  }
+
+  &__field {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    @include spacify(gap, x-small);
+  }
+
+  &__field-name {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, bold, small);
+  }
+
+  &__field-value {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, normal, medium);
+  }
+
+  &__donate {
+    width: 80%;
+    @include spacify(padding, x-small);
+    border-radius: 0.5rem;
+    border: 0;
+    background-color: #{map-get($default-theme, primary)};
+    color: #{map-get($default-theme, background-secondary)};  
+    transition: all 0.25s ease;
+    @include fontify(primary, bold, small);
+
+    @include respond(lg) {
+      @include fontify(primary, bold, medium);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      box-shadow: 0.4rem 0.4rem #{map-get($default-theme, secondary)};
+    }
+  }
+
+  &__progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    width: 100%;
+  }
+
+  &__progress-bar {
+    display: flex;
+    align-items: center;
+    height: 1rem;
+    outline: 1px solid;
+    outline-color: #{map-get($default-theme, custom-grey)};
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  &__bar {
+    width: 50%;
+    height: 1rem;
+    background-color: #{map-get($default-theme, primary)};
+    border-radius: 0.5rem;
+  }
+
+  &__progress-bar-current {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, normal, small);
+  }
+}

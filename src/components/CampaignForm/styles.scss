@@ -1,0 +1,110 @@
+@import '../../styles/mixins.scss';
+
+.campaign-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include spacify(padding, medium);
+  width: 90%;
+  @include spacify(gap, medium);
+  background-color: #{map-get($default-theme, background-secondary)};
+
+  @include respond(md) {
+    width: 80%;
+  }
+
+  @include respond(lg) {
+    width: 70%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include spacify(gap, large);
+  }
+
+  &__form-title {
+    align-self: center;
+    @include fontify(primary, bold, medium);
+    @include spacify(margin-bottom, medium);
+    color: #{map-get($default-theme, text)};
+
+    @include respond(lg) {
+      @include fontify(primary, bold, large);
+    }
+  }
+
+  &__form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include spacify(gap, small);
+    width: 100%;
+  }
+
+  &__label {
+    @include fontify(primary, normal, small);
+    text-align: center;
+    color: #{map-get($default-theme, text)};
+
+    @include respond(lg) {
+      @include fontify(primary, normal, medium);
+    }
+  }
+
+  &__input {
+    width: 90%;
+    @include fontify(primary, normal, x-small);
+    
+    @include respond(lg) {
+      @include fontify(primary, normal, small);
+    }
+
+    &:focus {
+      outline: 1px solid;
+      outline-color: #{map-get($default-theme, primary)};
+    }
+
+    &::placeholder {
+      opacity: 0.65;
+    }
+  }
+
+  &__submit {
+    align-self: center;
+    width: 50%;
+    border-radius: 0.3rem;
+    border: 0;
+    color: #{map-get($default-theme, background-secondary)};
+    background-color: #{map-get($default-theme, primary)};
+    transition: all 0.25s ease;
+    @include spacify(padding, x-small);
+    @include fontify(primary, bold, small);
+
+    @include respond(lg) {
+      @include fontify(primary, bold, medium);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      box-shadow: 0.4rem 0.4rem #{map-get($default-theme, secondary)};
+    }
+  }
+}
+
+.error {
+  @include fontify(primary, bold, small);
+  color: #{map-get($default-theme, secondary)};
+  word-break: break-word;
+  text-align: center;
+}
+
+.message {
+  @include fontify(primary, bold, small);
+  color: #{map-get($default-theme, primary)};
+  word-break: break-word;
+  text-align: center;
+}

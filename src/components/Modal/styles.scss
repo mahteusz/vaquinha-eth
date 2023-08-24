@@ -1,0 +1,42 @@
+@import '../../styles/mixins.scss';
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &__content {
+    @include spacify(padding, x-large);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#{map-get($default-theme, background-secondary)};
+    position: relative;
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color:#{map-get($default-theme, background-secondary)};
+    color:#{map-get($default-theme, primary)};
+    @include fontify(primary, bold, medium);
+    @include spacify(margin, x-small);
+    border: none;
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform:scale(1.1);
+    }
+  }
+}

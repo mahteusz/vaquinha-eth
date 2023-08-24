@@ -1,0 +1,50 @@
+@import '../../styles/mixins.scss';
+
+.campaign-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include spacify(padding, small);
+  @include spacify(gap, medium);
+  flex-grow:2;
+  background-color: #{map-get($default-theme, background-secondary)};
+
+
+  @include respond(sm) {
+    @include spacify(padding, x-large);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    @include fontify(primary, bold, medium);
+    color: #{map-get($default-theme, text)};
+    text-align: center;
+  
+    @include respond(lg) {
+      @include fontify(primary, bold, large);
+    }
+  }
+
+  &__donations {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, bold, small);
+
+    @include respond(sm) {
+      @include fontify(primary, bold, medium);
+    }
+  }
+
+  &__description {
+    color: #{map-get($default-theme, text)};
+    @include fontify(primary, normal, small);
+    text-align: justify;
+
+    @include respond(sm) {
+      @include fontify(primary, normal, medium);
+    }
+  }
+}
